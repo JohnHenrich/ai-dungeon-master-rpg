@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D&D AI: The Living Scroll</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="main-body">
+    <div id="setup-screen" class="container">
+        <h1 class="fantasy-title">Enter the Realm</h1>
+        <input type="text" id="campaignName" placeholder="Campaign Name">
+        <textarea id="campaignDesc" placeholder="Briefly describe the world..."></textarea>
+        <button id="startCampaignBtn" class="glow-button">FORGE STORY</button>
+    </div>
+
+    <div id="game-screen" class="game-layout hidden">
+        <aside class="sidebar">
+            <div class="stat-box">
+                <h2 id="char-name-display">Adventurer</h2>
+                <div class="hp-container">
+                    <span>HP: <span id="hp-text">20/20</span></span>
+                    <div class="hp-bar-bg"><div id="hp-bar"></div></div>
+                </div>
+                <div class="stat-grid">
+                    <div class="stat"><span>STR</span><p>15</p></div>
+                    <div class="stat"><span>DEX</span><p>12</p></div>
+                    <div class="stat"><span>INT</span><p>10</p></div>
+                    <div class="stat"><span>LUK</span><p>??</p></div>
+                </div>
+            </div>
+            <div class="inventory-box">
+                <h3>Pack</h3>
+                <ul id="items"><li>Rations</li><li>Rusty Dagger</li></ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div id="story-log" class="chat-log"></div>
+            
+            <div class="controls">
+                <div class="button-row">
+                    <button onclick="sendGameAction('check')">Stat Check</button>
+                    <button onclick="sendGameAction('combat')">Attack</button>
+                    <button onclick="sendGameAction('chaos')">Wild Magic</button>
+                </div>
+                <div class="input-row">
+                    <input type="text" id="user-input" placeholder="Type your action here...">
+                    <button id="send-btn" onclick="sendGameAction('talk')">➤</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="main.js" type="module"></script>
+</body>
+</html>

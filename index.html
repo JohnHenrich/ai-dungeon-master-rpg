@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D&D AI Campaign</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="setup-screen" class="container">
+        <h1 id="auth-title">Log In</h1>
+        <div id="auth-fields">
+            <input type="text" id="username" placeholder="Username" style="display:none;">
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            <button id="mainBtn">Log In</button>
+            <div class="link" id="toggleMode">Don't have an account? Sign Up</div>
+            <p id="message"></p>
+        </div>
+    </div>
+
+    <div id="dashboard-screen" class="container hidden">
+        <h1 class="fantasy-title">Main Menu</h1>
+        <button id="new-campaign-btn">Start New Campaign</button>
+        <hr>
+        <h3>Your Saved Heroes</h3>
+        <div id="campaign-list"></div>
+    </div>
+
+    <div id="creation-screen" class="container hidden">
+        <h2>Forge Your Hero</h2>
+        <input type="text" id="char-name" placeholder="Character Name (e.g., Mario)">
+        <input type="text" id="char-class" placeholder="Class (e.g., Mage, Barbarian, Rogue)">
+        <input type="text" id="char-weapon" placeholder="Starting Weapon (e.g., Mushroom Axe)">
+        <textarea id="world-desc" placeholder="Describe the world/setting..."></textarea>
+        <button id="begin-quest-btn">Begin Quest</button>
+    </div>
+
+    <div id="game-screen" style="display: none;" class="game-layout">
+        <aside class="sidebar">
+            <div class="stat-box">
+                <h3 id="char-display-name">Stats</h3>
+                
+                <div class="stat-row">HP: <span id="hp-val">20</span>/20</div>
+                <div class="hp-bar-bg">
+                    <div id="hp-bar" style="width: 100%;"></div>
+                </div>
+                
+                <hr>
+                
+                <div class="stat-grid">
+                    </div>
+            </div>
+            
+            <div id="inventory">
+                <h4>Pack</h4>
+                <ul id="item-list"></ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div id="dm-output" class="chat-log"></div>
+            
+            <div class="controls">
+                <div class="button-row">
+                    <button onclick="sendAction('check')">Skill Check</button>
+                    <button onclick="sendAction('attack')">Attack</button>
+                    <button onclick="sendAction('chaos')">Chaos</button>
+                </div>
+                <div class="input-row">
+                    <textarea id="player-input" placeholder="What do you do?"></textarea>
+                    <button id="send-btn" onclick="sendAction('talk')">➤</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

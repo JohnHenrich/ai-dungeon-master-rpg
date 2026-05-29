@@ -1,0 +1,7 @@
+POST http://localhost:3000/test-ai
+Content-Type: application/json
+
+{
+  "prompt": "I try to charm the guard with a wink",
+  "actionType": "combat"
+}
